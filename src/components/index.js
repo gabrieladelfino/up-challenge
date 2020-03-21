@@ -1,3 +1,5 @@
 export * from './Button'
 export * from './Input'
 export * from './Image'
+export * from './Scenery'
+export * from './Car'
