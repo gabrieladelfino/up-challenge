@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from './Game.style'
-import theme from '../utils/theme'
+import Scenary from '../components/Scenery'
+import image from '../assets/CENARIO_anima.gif'
 
 const Game = () => (
-    <Container>
-      
+    <Container img={image}>
     </Container>
 )
 
