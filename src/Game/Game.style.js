@@ -5,7 +5,7 @@ export const Container = styled.div`
 `
 
 export const Wrapper = styled.div`
-  width: 70%;
+  width: 50%;
   height: 150px;
   display: flex;
   align-items: center;
