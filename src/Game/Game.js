@@ -5,7 +5,7 @@ import { Scenary, Car } from '../components'
 import keys from '../utils/keys'
 
 import scenary from '../assets/scenary.gif'
-import scenaryStoped from '../assets/stopedScenary.png'
+import scenaryStoped from '../assets/stoppedScenary.jpg'
 
 import car from '../assets/car.png'
 
@@ -15,6 +15,14 @@ const Game = () => {
   const [time, setTime] = useState(0);
   const [image, setImage] = useState(scenary)
   const [isAnimation, setIsAnimation] = useState(true)
+
+  const countingGameTime= () => setTimeout(() => setTime(time+1), 100)
+  
+  const stopGame = () => {
+    setImage(scenaryStoped)
+    setIsAnimation(false)
+    clearTimeout()
+  }
 
   const keyPress = e => {
     if(e.which === keys[0].code){
@@ -30,8 +38,6 @@ const Game = () => {
     }
   }
 
-  useEffect(() => { setTimeout(() => setTime(time+1), 1000) })
-
   useEffect(() => {
     window.addEventListener('keyup', keyPress)
     
@@ -39,6 +45,8 @@ const Game = () => {
       window.removeEventListener('keyup', keyPress)
     }
   })
+
+  useEffect(() => { time < 60 ? countingGameTime() : stopGame() })
 
   return (
     <Container onKeyUp={e => keyPress(e)}>
