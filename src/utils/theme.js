@@ -1,5 +1,5 @@
 const theme = {
-  total_space: '100px 30px',
+  total_space: '100px 20px',
   border_radius: '2px',
   border: 'none',
   font: {

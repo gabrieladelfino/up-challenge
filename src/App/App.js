@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from './App.style'
 import { Input, Button, Image } from '../components'
 import theme from '../utils/theme'
-import carImage from '../assets/CARRO.png'
+import carImage from '../assets/car.png'
 
 const App = () => (
     <Container>

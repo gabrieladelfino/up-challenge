@@ -14,27 +14,30 @@ const Game = () => {
   const [keyPressed, setKeyPressed] = useState('center');
   const [time, setTime] = useState(0);
   const [image, setImage] = useState(scenary)
+  const [isAnimation, setIsAnimation] = useState(true)
 
   const keyPress = e => {
     if(e.which === keys[0].code){
       setImage(image === scenary ? scenaryStoped : scenary)
-      console.log(image)
+      setIsAnimation(!isAnimation)
     }
     else{
       keys.forEach(element => {
         if (e.which === element.code) {
           setKeyPressed(element.position)
         }
-       
       })
     }
   }
 
-  const startTimer = () => setInterval(() => setTime(Date.now()), 1000)
-
+  var s = 1;
+  (function(){ setInterval(() => setTime(s++), 100) })()
+  
+  
+  
   useEffect(() => {
     window.addEventListener('keyup', keyPress)
-
+    
     return () => {
       window.removeEventListener('keyup', keyPress)
     }
@@ -43,12 +46,12 @@ const Game = () => {
   return (
     <Container onKeyUp={e => keyPress(e)}>
       <Information>
-        <div>Nemezis</div>
-        <div>{time}</div>
+        <h2>Nemezis</h2>
+        <h2>{time}</h2>
       </Information>
       <Scenary img={image}>
         <Wrapper position={keyPressed}>
-          <Car img={car} />
+          <Car img={car} isAnimation={isAnimation} />
         </Wrapper>
       </Scenary>
     </Container >
