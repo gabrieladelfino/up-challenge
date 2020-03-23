@@ -1,67 +1,57 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container, Wrapper } from './Game.style'
+import { Container, Wrapper, Information } from './Game.style'
 import { Scenary, Car } from '../components'
+import keys from '../utils/keys'
 
-import scenary from '../assets/CENARIO_anima.gif'
-import car from '../assets/CARRO.png'
+import scenary from '../assets/scenary.gif'
+import scenaryStoped from '../assets/stopedScenary.png'
+
+import car from '../assets/car.png'
 
 const Game = () => {
 
   const [keyPressed, setKeyPressed] = useState('center');
+  const [time, setTime] = useState(0);
+  const [image, setImage] = useState(scenary)
 
-  const keys = [
-    {
-      key: 'a',
-      code: 65,
-      position: 'flex-start'
-    },
-    {
-      key: 's',
-      code: 83,
-      position: 'center'
-    },
-    {
-      key: 'd',
-      code: 68,
-      position: 'flex-end'
-    },
-    {
-      key: 'arrowLeft',
-      code: 37,
-      position: 'flex-start'
-    },
-    {
-      key: 'arrowRight',
-      code: 39,
-      position: 'flex-end'
+  const keyPress = e => {
+    if(e.which === keys[0].code){
+      setImage(image === scenary ? scenaryStoped : scenary)
+      console.log(image)
     }
-  ]
-
-  function keyPress(e) {
-    keys.forEach(element => {
-      if(e.which === element.code) {
-        setKeyPressed(element.position)
-      }
-    })
+    else{
+      keys.forEach(element => {
+        if (e.which === element.code) {
+          setKeyPressed(element.position)
+        }
+       
+      })
+    }
   }
+
+  const startTimer = () => setInterval(() => setTime(Date.now()), 1000)
 
   useEffect(() => {
     window.addEventListener('keyup', keyPress)
-    
+
     return () => {
-      window.removeEventListener('keyup', keyPress);
+      window.removeEventListener('keyup', keyPress)
     }
   })
 
   return (
     <Container onKeyUp={e => keyPress(e)}>
-      <Scenary img={scenary}>
+      <Information>
+        <div>Nemezis</div>
+        <div>{time}</div>
+      </Information>
+      <Scenary img={image}>
         <Wrapper position={keyPressed}>
           <Car img={car} />
         </Wrapper>
       </Scenary>
-    </Container>
+    </Container >
   )
 }
 
