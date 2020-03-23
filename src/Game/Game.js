@@ -30,11 +30,8 @@ const Game = () => {
     }
   }
 
-  var s = 1;
-  (function(){ setInterval(() => setTime(s++), 100) })()
-  
-  
-  
+  useEffect(() => { setTimeout(() => setTime(time+1), 1000) })
+
   useEffect(() => {
     window.addEventListener('keyup', keyPress)
     
