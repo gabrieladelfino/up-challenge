@@ -5,7 +5,7 @@ import { Scenary, Car } from '../components'
 import keys from '../utils/keys'
 
 import scenary from '../assets/scenary.gif'
-import scenaryStoped from '../assets/stoppedScenary.jpg'
+import scenaryStopped from '../assets/stoppedScenary.jpg'
 
 import car from '../assets/car.png'
 
@@ -19,7 +19,7 @@ const Game = () => {
   const countingGameTime= () => setTimeout(() => setTime(time+1), 100)
   
   const stopGame = () => {
-    setImage(scenaryStoped)
+    setImage(scenaryStopped)
     setIsAnimation(false)
     clearTimeout()
   }
