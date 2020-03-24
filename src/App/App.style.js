@@ -7,7 +7,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${theme.colors.disabled};
 `
 export const Wrapper = styled.div`
   display: flex;
@@ -19,9 +18,10 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 30px;
   background-color: ${theme.colors.base};
-  -webkit-box-shadow: 7px -2px 17px -15px rgba (0,0,0,0,75);
-  -moz-box-shadow: 7px -2px 17px -15px rgba (0,0,0,0,75);
-  box-shadow: 7px -2px 17px -15px rgba (0,0,0,0,75);
+  -webkit-box-shadow: 6px 7px 14px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: 6px 7px 14px -8px rgba(0,0,0,0.75);
+box-shadow: 6px 7px 14px -8px rgba(0,0,0,0.75);
+
 
   & > input{
     margin-top: 40px;

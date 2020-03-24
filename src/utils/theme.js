@@ -14,11 +14,11 @@ const theme = {
     base: '#F4F4F4',
     base_secondary: '#D2CBD7',
     disabled: '#757575',
-    detail_constrast: '#45347A',
+    detail_constrast: '#508498',
     title: '#000000',
     text: '#808080',
     border_disabled: '#101010',
-    detail: '#503996',
+    detail: '#489ABB',
     no_color: 'transparent'
   }
 }
