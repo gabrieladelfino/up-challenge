@@ -12,12 +12,13 @@ const theme = {
   },
   colors: {
     base: '#F4F4F4',
-    base_secondary: '#E4E4E4',
-    border: '#707070',
-    detail_constrast: '#FBA919',
+    base_secondary: '#D2CBD7',
+    disabled: '#757575',
+    detail_constrast: '#45347A',
     title: '#000000',
     text: '#808080',
-    detail: '#F36523',
+    border_disabled: '#101010',
+    detail: '#503996',
     no_color: 'transparent'
   }
 }

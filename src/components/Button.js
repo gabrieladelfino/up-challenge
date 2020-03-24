@@ -1,4 +1,4 @@
-import styled  from 'styled-components'
+import styled, { css }  from 'styled-components'
 import theme from '../utils/theme'
 
 export const Button = styled.button`
@@ -14,7 +14,13 @@ export const Button = styled.button`
   font-family: ${theme.font.font_family};
   background: ${props => props.backgroundColor};
   color: ${theme.colors.base};
-  border-bottom: solid 2px ${theme.colors.detail_constrast};
+  border-bottom: solid 3px ${theme.colors.detail_constrast};
+
+  ${props => props.disabled && (css`
+    opacity: 0.5;
+    background: ${theme.colors.disabled};
+    border-bottom: solid 3px ${theme.colors.border_disabled};
+  `)}
 `
 
 export default Button

@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 
-import { Container } from './App.style'
-import { Input, Button, Image } from '../components'
+import { Container, Wrapper, Layer, Title } from './App.style'
+import { Input, Button } from '../components'
+
 import theme from '../utils/theme'
-import carImage from '../assets/car.png'
+import image from '../assets/layer.png'
 
 const App = () => {
 
   const [user, setUser] = useState('');
+  const [disabled, setIsDisabled] = useState(true);
 
   const startGame = user => {
     localStorage.setItem('user', JSON.stringify(user))
@@ -16,17 +18,24 @@ const App = () => {
 
   return (
     <Container>
-      <Image src={carImage} width={`150px`} height={`150px`} />
-      <Input
-        placeholder='Digite seu usuário para começar'
-        onKeyUp={e => setUser(e.target.value)}
-      />
-      <Button
-        backgroundColor={theme.colors.detail}
-        onClick={() => startGame(user)}
-      >
-        Jogar
+      <Wrapper>
+        <Layer src={image} width={'34.5%'} height={'35%'} />
+        <Title>Car Game</Title>
+        <Input
+          placeholder='Digite seu usuário para começar'
+          onKeyUp={e => {
+            setUser(e.target.value)
+            setIsDisabled(false)
+          }}
+        />
+        <Button
+          disabled={disabled}
+          backgroundColor={theme.colors.detail}
+          onClick={() => startGame(user)}
+        >
+          Jogar
       </Button>
+      </Wrapper>
     </Container>
   )
 }

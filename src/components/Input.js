@@ -6,7 +6,7 @@ export const Input = styled.input`
   padding: 7px;
   width: 320px;
   height: 30px;
-  background: ${theme.colors.base};
+  background: ${theme.colors.base_secondary};
   border: none;
   font-size: 14px;
   font-family: sans-serif;
