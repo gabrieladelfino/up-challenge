@@ -3,7 +3,11 @@ const theme = {
   border_radius: '2px',
   border: 'none',
   font: {
-    font_size: '14px',
+    size: {
+      small: '14px',
+      middle: '18px',
+      large: '20px'
+    },
     font_family: 'Segoe UI'
   },
   colors: {

@@ -10,12 +10,12 @@ export const Information = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  font-family: ${theme.font.font_family};
-  font-size: ${theme.font.font_size};
+`
 
-  & > h2 {
-    font-weight: bold;
-  }
+export const Text = styled.p`
+  font-family: ${theme.font.font_family};
+  font-size: ${theme.font.size.middle};
+  font-weight: bold;
 `
 
 export const Wrapper = styled.div`

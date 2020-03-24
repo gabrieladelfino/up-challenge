@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container, Wrapper, Information } from './Game.style'
+import { Container, Wrapper, Information, Text } from './Game.style'
 import { Scenary, Car } from '../components'
+
 import keys from '../utils/keys'
 
 import scenary from '../assets/scenary.gif'
-import scenaryStopped from '../assets/stoppedScenary.jpg'
-
+import scenaryStopped from '../assets/scenaryStopped.jpg'
 import car from '../assets/car.png'
 
 const Game = () => {
@@ -16,8 +16,10 @@ const Game = () => {
   const [image, setImage] = useState(scenary)
   const [isAnimation, setIsAnimation] = useState(true)
 
-  const countingGameTime= () => setTimeout(() => setTime(time+1), 100)
-  
+  const name = JSON.parse(localStorage.getItem('user'))
+
+  const countingGameTime = () => setTimeout(() => setTime(time + 1), 1000)
+
   const stopGame = () => {
     setImage(scenaryStopped)
     setIsAnimation(false)
@@ -25,11 +27,11 @@ const Game = () => {
   }
 
   const keyPress = e => {
-    if(e.which === keys[0].code){
-      setImage(image === scenary ? scenaryStoped : scenary)
+    if (e.which === keys[0].code) {
+      setImage(image === scenary ? scenaryStopped : scenary)
       setIsAnimation(!isAnimation)
     }
-    else{
+    else {
       keys.forEach(element => {
         if (e.which === element.code) {
           setKeyPressed(element.position)
@@ -40,7 +42,7 @@ const Game = () => {
 
   useEffect(() => {
     window.addEventListener('keyup', keyPress)
-    
+
     return () => {
       window.removeEventListener('keyup', keyPress)
     }
@@ -51,8 +53,8 @@ const Game = () => {
   return (
     <Container onKeyUp={e => keyPress(e)}>
       <Information>
-        <h2>Nemezis</h2>
-        <h2>{time}</h2>
+        <Text>{name}</Text>
+        <Text>{time}</Text>
       </Information>
       <Scenary img={image}>
         <Wrapper position={keyPressed}>
